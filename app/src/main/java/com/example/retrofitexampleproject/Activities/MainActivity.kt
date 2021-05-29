@@ -30,7 +30,6 @@ class MainActivity : AppCompatActivity() {
         layoutManager = LinearLayoutManager(this)
         recyclerMovieList.layoutManager = layoutManager
         //dialog = SpotsDialog.Builder().setCancelable(true).setContext(this).build()
-
         getAllMovieList()
 
     }
