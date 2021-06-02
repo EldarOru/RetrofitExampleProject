@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.retrofitexampleproject.Model.Movie
 import com.example.retrofitexampleproject.R
 import com.squareup.picasso.Picasso
+import org.w3c.dom.Text
 
 class MyMovieAdapter(private val context: Context, private val movieList: MutableList<Movie>):RecyclerView.Adapter<MyMovieAdapter.MyViewHolder>() {
 
@@ -27,8 +28,9 @@ class MyMovieAdapter(private val context: Context, private val movieList: Mutabl
 
         Picasso.get().load(movieList[position].imageurl).into(holder.image)
         holder.txt_name.text = movieList[position].name
-        holder.txt_team.text = movieList[position].team
-        holder.txt_createdby.text = movieList[position].createdby
+        holder.txt_team.text = "Team: " + movieList[position].team
+        holder.txt_createdby.text = "Creator: " + movieList[position].createdby
+        holder.txt_description.text = movieList[position].bio
     }
 
     class MyViewHolder(itemView:View):RecyclerView.ViewHolder(itemView){
@@ -36,6 +38,7 @@ class MyMovieAdapter(private val context: Context, private val movieList: Mutabl
         val txt_name: TextView = itemView.findViewById(R.id.txt_name)
         val txt_team: TextView = itemView.findViewById(R.id.txt_team)
         val txt_createdby: TextView = itemView.findViewById(R.id.txt_createdby)
+        val txt_description: TextView = itemView.findViewById(R.id.txt_description)
 
         fun bind(listItem: Movie) {
             itemView.setOnClickListener {
